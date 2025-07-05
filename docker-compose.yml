@@ -1,0 +1,18 @@
+
+#Usar docker compose permite q atraves do arquivo .yml ou .yaml, eu defina como vai funcionar a aplicaçao, como as portas, volumes, redes e outros serviços que ela pode depender. Usar só um comando p a aplicaçao subir
+
+
+#docker compose up para rodar o docker-compose
+
+
+services:
+  app:
+    build: .  #constrói a imagem a partir do Dockerfile na raiz do projeto
+    container_name: api_container  #nome do container
+    ports:
+      - "8000:8000"
+
+      #toda modificação que eu fizer no código, o container vai perceber e atualizar automaticamente
+    volumes:
+      - .:/app
+
